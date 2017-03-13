@@ -20,13 +20,13 @@ clean:
 	rm -f unconv.1 *.html *.xml
 
 %.1.html: %.1.adoc
-	asciidoc -d manpage $<
+	TZ=UTC asciidoc -d manpage $<
 
 %.1: %.1.xml
 	xmlto man $<
 
 %.html: %.adoc
-	asciidoc $<
+	TZ=UTC asciidoc $<
 
 %.1.xml: %.1.adoc
-	asciidoc -b docbook -d manpage $<
+	TZ=UTC asciidoc -b docbook -d manpage $<
